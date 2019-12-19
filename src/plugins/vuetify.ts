@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import Vuetify from 'vuetify/lib';
+import vuetify from 'vuetify/lib';
 
-Vue.use(Vuetify);
+Vue.use(vuetify, {});
 
-export default new Vuetify({
+export default new vuetify({
 });

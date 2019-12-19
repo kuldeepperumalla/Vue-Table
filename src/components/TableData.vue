@@ -13,6 +13,8 @@
 import { Component, Vue } from "vue-property-decorator";
 import axios, { AxiosResponse } from "axios";
 import VueAxios from "vue-axios";
+import ButtonContent from "./ButtonContent.vue";
+import TableContent from "./TableContent.vue";
 
 interface IEntry {
   id: number;
@@ -25,7 +27,12 @@ interface IEntry {
   filter: any;
 }
 
-@Component
+@Component({
+  components: {
+    ButtonContent,
+    TableContent
+  }
+})
 export default class TableData extends Vue {
   posts: null | IEntry = null;
 
@@ -46,9 +53,9 @@ export default class TableData extends Vue {
   // methods
 
   /**
-  * Gets called when the user clicks on +  button
-  * @function
-  */
+   * Gets called when the user clicks on +  button
+   * @function
+   */
 
   addItem() {
     if (this.posts !== null) {

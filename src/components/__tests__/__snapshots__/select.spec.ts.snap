@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableContent.vue should render content correctly 1`] = `
+<div
+  class="scroll"
+>
+  <h1>
+    Table Data
+  </h1>
+   
+  <v-simple-table />
+   
+  <v-responsive
+    class="overflow-y-auto"
+    max-height="500"
+  >
+    <v-lazy
+      min-height="500"
+      options="[object Object]"
+      transition="fade-transition"
+    >
+      <v-card>
+        <div>
+          <v-simple-table />
+        </div>
+      </v-card>
+    </v-lazy>
+  </v-responsive>
+</div>
+`;
