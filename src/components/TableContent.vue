@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll">
+  <div class="tableRows">
     <h1>Table Data</h1>
     <v-simple-table>
       <template v-slot:default>
@@ -14,43 +14,35 @@
     </v-simple-table>
 
     <v-responsive class="overflow-y-auto" max-height="500">
-      <v-lazy
-        :options="{
-          threshold: .5
-        }"
-        min-height="500"
-        transition="fade-transition"
-      >
-        <v-card>
-          <div>
-            <v-simple-table>
-              <template v-slot:default>
-                <tbody>
-                  <tr
-                    :key="post.Id"
-                    v-for="(post) in posts"
-                    :class="{highlight:post.removeSelectedItem}"
-                    @dblclick="$set(post, 'removeSelectedItem', !post.removeSelectedItem)"
-                  >
-                    <td>
-                      <input type="text" placeholder="Add name.." v-model="post.name" />
-                    </td>
-                    <td>
-                      <input type="text" placeholder="Add contact.." v-model="post.contact" />
-                    </td>
-                    <td>
-                      <input type="text" placeholder="Add Id.." v-model="post.id" />
-                    </td>
-                    <!-- <td>
+      <v-card>
+        <div>
+          <v-simple-table>
+            <template v-slot:default>
+              <tbody>
+                <tr
+                  :key="post.Id"
+                  v-for="(post) in posts"
+                  :class="{highlight:post.removeSelectedItem}"
+                  @click="$set(post, 'removeSelectedItem', !post.removeSelectedItem)"
+                >
+                  <td>
+                    <input type="text" placeholder="Add name.." v-model="post.name" />
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Add contact.." v-model="post.contact" />
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Add Id.." v-model="post.id" />
+                  </td>
+                  <!-- <td>
                       <v-checkbox class="large" large v-model="post.removeCheckedItem" />
-                    </td>-->
-                  </tr>
-                </tbody>
-              </template>
-            </v-simple-table>
-          </div>
-        </v-card>
-      </v-lazy>
+                  </td>-->
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
+        </div>
+      </v-card>
     </v-responsive>
   </div>
 </template>
@@ -68,6 +60,10 @@ export default class TableContent extends Vue {
 </script>
 
 <style>
+.tableRows {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
 tr.highlight {
   background: lightcoral;
 }

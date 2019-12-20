@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div :table="tabledata">
     <div>
-      <TableContent v-bind:posts="posts" />
+      <table-content v-bind:posts="posts" />
     </div>
     <div class="buttons">
       <button-content @add="addItem" @clear="clearChecked" />
@@ -36,17 +36,15 @@ interface IEntry {
 export default class TableData extends Vue {
   posts: null | IEntry = null;
 
-  // Fetching Data from JSON file
-
   async mounted() {
     console.log(this.posts);
     try {
       const response: AxiosResponse<IEntry> = await axios.get("/details.json");
       console.log(`status of response is ${response.status}`);
       this.posts = response.data;
-      console.log(this.posts);
+      console.log(response);
     } catch (e) {
-      console.log(e);
+      // console.log("error");
     }
   }
 

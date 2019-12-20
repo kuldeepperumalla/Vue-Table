@@ -17,18 +17,13 @@ export default Vue.extend({
 </script>
 
 <style >
-html {
-  overflow: hidden;
-}
-html {
-  overflow: hidden;
-}
 h1 {
   text-align: center;
 }
 
 * {
   margin: 0px;
+  scroll-behavior: smooth;
 }
 
 input[type="text"] {

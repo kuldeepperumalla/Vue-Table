@@ -33,6 +33,12 @@ export default class ButtonContent extends Vue {
   }
 }
 </script>
+<style scoped>
+* {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+</style>
   
 
 
